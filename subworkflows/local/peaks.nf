@@ -229,4 +229,5 @@ workflow PEAKS {
         affinity_ratio = AFFINITY_RATIO.out
         affinity_sum = AFFINITY_SUM.out
         peaks = ch_blacklisted
+        stitched_enhancers = ROSE.out
 }

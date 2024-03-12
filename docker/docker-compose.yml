@@ -19,3 +19,7 @@ services:
     build:
       context: chromhmm
     image: leonhafner/openjdk:17
+  fimo:
+    build:
+      context: fimo
+    image: leonhafner/memesuite

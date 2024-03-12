@@ -31,6 +31,7 @@ include { DYNAMITE } from '../subworkflows/local/dynamite'
 include { RANKING } from '../subworkflows/local/ranking'
 include { CHIP_ATLAS } from '../subworkflows/local/chip_atlas'
 include { EH_ATLAS } from '../subworkflows/local/eh_atlas'
+include { FIMO } from '../subworkflows/local/fimo'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -146,6 +147,12 @@ workflow INSPECT {
 
     RANKING (
         ch_affinitySum_deseq_dynamite
+    )
+
+    FIMO(
+        RANKING.out.tfs,
+        PEAKS.out.stitched_enhancers,
+        params.pwm
     )
 
     CUSTOM_DUMPSOFTWAREVERSIONS(ch_versions)
